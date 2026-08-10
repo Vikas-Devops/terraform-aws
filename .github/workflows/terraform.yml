@@ -33,3 +33,12 @@ jobs:
       - name: Terraform Validate
         working-directory: environments/dev
         run: terraform validate
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v6
+
+      - name: Initialize TFLint
+        run: tflint --init
+
+      - name: Run TFLint
+        run: tflint --recursive
