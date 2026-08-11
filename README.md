@@ -35,3 +35,21 @@ The current implementation includes:
    Private Subnet AZ-A         Private Subnet AZ-B
           |                         |
         Workloads                  Workloads
+
+
+## Observability Stack
+
+The repository includes a local observability stack built around OpenTelemetry.
+
+### Architecture
+
+```text
+Flask Application
+       |
+       | OTLP
+       v
+OpenTelemetry Collector
+       |
+       +--> Prometheus --> Grafana
+       |
+       +--> Debug Trace Exporter
